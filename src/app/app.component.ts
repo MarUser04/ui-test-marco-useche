@@ -35,14 +35,20 @@ export class AppComponent {
     }
   }
 
+  @HostListener('document:click', ['$event']) clickedOutside() {
+    this.showOptions = false
+  }
+
   getData(): void {
     this.cardService.fetchData().subscribe({
-      next: (res: any) => this.data = res,
-      error: err => console.error(err)
+      next: (res: any) => (this.data = res),
+      error: (err) => console.error(err)
     })
   }
 
-  displayOptions(): void {
+  displayOptions($event: any): void {
+    $event.preventDefault();
+    $event.stopPropagation();
     this.showOptions = !this.showOptions
   }
 

@@ -116,7 +116,7 @@
     <div class="rulings">
       <h2>Previous Rulings</h2>
       <div *ngIf="allowChangeFormat">
-        <div class="rulings__selectbox" (click)="displayOptions()">
+        <div class="rulings__selectbox" (click)="displayOptions($event)">
           <span>{{ displayFormat | titlecase }}</span>
           <img src="assets/img/arrow.svg" alt="arrow" />
         </div>
