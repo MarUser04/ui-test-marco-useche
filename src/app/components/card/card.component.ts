@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { CardService } from 'src/app/services/card.service';
 
 @Component({
   selector: 'card',
@@ -7,9 +8,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardComponent implements OnInit {
 
-  constructor() { }
+  @Input() displayFormat: string = '';
+  @Input() item: any = {};
+  img: string = '';
+  positiveVotes: string = '';
+  negativeVotes : string = '';
+  selectVote: string = '';
+  voted: boolean = false;
+
+  constructor(private cardService: CardService) { }
 
   ngOnInit(): void {
+    this.img = `../../../assets/img/${this.item?.picture}`;
+    const total: number = this.item?.votes.positive + this.item?.votes.negative;
+    this.positiveVotes = `${Math.round((100 / total) * this.item?.votes.positive)}%`;
+    this.negativeVotes = `${Math.round((100 / total) * this.item?.votes.negative)}%`;
   }
 
+  selectVoteOption(option: string) {
+    this.selectVote = this.selectVote === option ? '' : option;
+  }
+
+  vote() {
+    if (this.selectVote) {
+      this.voted = true;
+    }
+  }
+
+  voteAgain() {
+    this.voted = false;
+    this.selectVote = '';
+  }
 }

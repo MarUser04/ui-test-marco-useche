@@ -1,4 +1,5 @@
 import { Component, HostListener } from '@angular/core';
+import { CardService } from './services/card.service';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +10,9 @@ export class AppComponent {
   showOptions = false;
   displayFormat = 'grid';
   allowChangeFormat = true;
+  data = [];
+
+  constructor(private cardService: CardService) {}
 
   ngOnInit(): void {
     if (window.innerWidth <= 550) {
@@ -16,6 +20,8 @@ export class AppComponent {
     } else {
       this.allowChangeFormat = true;
     }
+    
+    this.cardService.fetchData().subscribe((res: any) => this.data = res.data)
   }
 
   @HostListener('window:resize', ['$event'])

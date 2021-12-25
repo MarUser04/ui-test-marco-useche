@@ -141,6 +141,19 @@
         </div>
       </div>
     </div>
+    <div
+      class="cards__container"
+      [ngClass]="{
+        'cards__container-list': displayFormat === 'list',
+        'cards__container-grid': displayFormat === 'grid'
+      }"
+    >
+      <card
+        *ngFor="let item of data"
+        [item]="item"
+        [displayFormat]="displayFormat"
+      ></card>
+    </div>
   </main>
   <aside class="banner banner-bottom" role="doc-tip" aria-label="Submit a name">
     <img

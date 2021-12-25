@@ -1,0 +1,233 @@
+.card {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.card-grid {
+  height: 348px;
+}
+
+.card__background {
+  position: absolute;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card__background-grid {
+  width: 99.9%;
+}
+
+.card__container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  width: auto;
+  height: auto;
+  color: white;
+}
+
+.card__container-grid {
+  overflow: hidden;
+}
+
+.card__main,
+.card__info {
+  width: auto;
+  height: auto;
+}
+
+.card__voteOptions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 20%;
+  margin-top: 10px;
+}
+
+.card__container h1 {
+  margin-left: 13%;
+  margin-right: 5%;
+  margin-bottom: -7px;
+  font-family: Lato;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 43px;
+  letter-spacing: 0px;
+  text-align: left;
+}
+
+.card__container p {
+  margin-left: 13%;
+  margin-right: 5%;
+  font-family: Lato;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 14px;
+  letter-spacing: 0px;
+}
+
+.card__time {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 10%;
+  font-family: Lato;
+  line-height: 14px;
+}
+
+.card__time-grid {
+  font-size: 12px;
+  line-height: 14px;
+}
+
+.icon-button {
+  padding: 8px;
+}
+
+.icon-button:hover {
+  cursor: pointer;
+}
+
+.icon-button-grid {
+  width: 35px;
+  height: 35px;
+}
+
+.icon-button__selected {
+  border: 2px solid white;
+  width: 38px;
+  height: 38px;
+}
+
+.card__votes__container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 10%;
+  margin-top: 10px;
+}
+
+.card__votes__container button {
+  margin-right: 10px;
+}
+
+.card__votes__voteNow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid white;
+  background-color: rgba(48, 48, 48, 0.6);
+  width: 107px;
+  height: 38px;
+}
+
+.card__votes__voteNow:hover {
+  cursor: pointer;
+}
+
+.card__votes__voteNow span {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0px;
+  text-align: center;
+}
+
+.card__votes__voteNow-grid span {
+  font-size: 15px;
+  line-height: 18px;
+}
+
+.card__votes__voteNow-disabled {
+  opacity: 0.4;
+}
+
+.card__votes__voteNow:hover {
+  cursor: pointer;
+}
+
+.card__percentage {
+  display: flex;
+  margin-top: 25px;
+  width: 100%;
+}
+
+.thumbsUp,
+.thumbsDown {
+  display: flex;
+  height: 45px;
+  align-items: center;
+}
+
+.thumbsUp-grid span,
+.thumbsDown-grid span {
+  font-family: Lato;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0px;
+  text-align: left;
+}
+
+.thumbsUp img,
+.thumbsDown img {
+  margin: 10px;
+}
+
+.thumbsUp-grid img,
+.thumbsDown-grid img {
+  width: 15px;
+  height: 15px;
+}
+
+.thumbsUp {
+  background-color: rgba(60, 187, 180, 0.6);
+}
+
+.thumbsDown {
+  background-color: rgba(249, 173, 29, 0.6);
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+.card__currentVote-grid {
+  padding: 10px;
+}
+
+.card__currentVote-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.card__currentVote-grid img {
+  width: 15px;
+  height: 15px;
+}
+
+.card__currentVote-grid {
+  position: absolute;
+  top: 40%;
+  display: flex;
+}
+
+@media all and (max-width: 550px) {
+  .card {
+    width: 300px;
+    height: 300px;
+  }
+
+  .card__currentVote-grid {
+    top: 28%;
+  }
+}

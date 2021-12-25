@@ -506,6 +506,49 @@ main h2 {
   cursor: pointer;
 }
 
+.cards__container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 25px;
+  width: 100%;
+}
+
+.cards__container-list {
+  grid-template-columns: repeat(1, 1fr);
+}
+
+.cards__container-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media all and (max-width: 768px) {
+  .cards__container {
+    display: grid;
+    grid-gap: 25px;
+    width: 100%;
+  }
+
+  .cards__container-list {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  
+  .cards__container-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media all and (max-width: 550px) {
+  .cards__container {
+    overflow: scroll;
+    display: flex;
+    width: 100%;
+  }
+
+  .cards__container::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 @media all and (min-width: 500px) {
   .banner-top .banner__left {
       flex-basis: 30%;

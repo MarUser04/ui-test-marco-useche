@@ -1,1 +1,169 @@
-<p>card works!</p>
+<div
+  class="card"
+  [ngClass]="{
+    'card-list': displayFormat === 'list',
+    'card-grid': displayFormat === 'grid'
+  }"
+>
+  <img
+    class="card__background"
+    [ngClass]="{
+      'card__background-list': displayFormat === 'list',
+      'card__background-grid': displayFormat === 'grid'
+    }"
+    src="{{ img }}"
+    alt="{{ item?.name }}"
+  />
+  <button
+    *ngIf="selectVote === 'negative'"
+    class="icon-button"
+    aria-label="thumbs down"
+    [ngClass]="{
+      'card__currentVote-list': displayFormat === 'list',
+      'card__currentVote-grid': displayFormat === 'grid'
+    }"
+  >
+    <img src="assets/img/thumbs-down.svg" alt="thumbs down" />
+  </button>
+  <button
+    *ngIf="selectVote === 'positive'"
+    class="icon-button"
+    aria-label="thumbs up"
+    [ngClass]="{
+      'card__currentVote-list': displayFormat === 'list',
+      'card__currentVote-grid': displayFormat === 'grid'
+    }"
+  >
+    <img src="assets/img/thumbs-up.svg" alt="thumbs up" />
+  </button>
+  <div
+    class="card__container"
+    [ngClass]="{
+      'card__container-list': displayFormat === 'list',
+      'card__container-grid': displayFormat === 'grid'
+    }"
+  >
+    <div
+      class="card__main"
+      [ngClass]="{ 'card__main-list': displayFormat === 'list' }"
+    >
+      <div
+        class="card__info"
+        [ngClass]="{ 'card__info-list': displayFormat === 'list' }"
+      >
+        <h1>
+          {{
+            item?.name.length > 20 && displayFormat === "grid"
+              ? (item?.name | slice: 0:22) + "..."
+              : item?.name
+          }}
+        </h1>
+        <p>
+          {{
+            item?.description.length > 80
+              ? (item?.description | slice: 0:80) + "..."
+              : item?.description
+          }}
+        </p>
+      </div>
+      <div [ngClass]="{ card__voteOptions: displayFormat === 'list' }">
+        <span
+          *ngIf="!voted"
+          class="card__time"
+          [ngClass]="{
+            'card__time-list': displayFormat === 'list',
+            'card__time-grid': displayFormat === 'grid'
+          }">
+          24 days ago in {{ item?.category | titlecase }}
+        </span>
+        <span
+          *ngIf="voted"
+          class="card__time"
+          [ngClass]="{
+            'card__time-list': displayFormat === 'list',
+            'card__time-grid': displayFormat === 'grid'
+          }">
+          Thank you for your vote!
+        </span>
+        <div class="card__votes__container">
+          <button
+            *ngIf="!voted"
+            class="icon-button"
+            (click)="selectVoteOption('positive')"
+            [ngClass]="{
+              'icon-button-list': displayFormat === 'list',
+              'icon-button-grid': displayFormat === 'grid',
+              'icon-button__selected': selectVote === 'positive'
+            }"
+            aria-label="thumbs up"
+          >
+            <img src="assets/img/thumbs-up.svg" alt="thumbs up" />
+          </button>
+          <button
+            *ngIf="!voted"
+            class="icon-button"
+            (click)="selectVoteOption('negative')"
+            [ngClass]="{
+              'icon-button-list': displayFormat === 'list',
+              'icon-button-grid': displayFormat === 'grid',
+              'icon-button__selected': selectVote === 'negative'
+            }"
+            aria-label="thumbs down"
+          >
+            <img src="assets/img/thumbs-down.svg" alt="thumbs down" />
+          </button>
+          <div
+            *ngIf="!voted"
+            class="card__votes__voteNow"
+            [ngClass]="{
+              'card__votes__voteNow-list': displayFormat === 'list',
+              'card__votes__voteNow-grid': displayFormat === 'grid',
+              'card__votes__voteNow-disabled': selectVote === ''
+            }"
+            (click)="vote()"
+          >
+            <span>Vote Now</span>
+          </div>
+          <div
+            *ngIf="voted"
+            class="card__votes__voteNow"
+            [ngClass]="{
+              'card__votes__voteNow-list': displayFormat === 'list',
+              'card__votes__voteNow-grid': displayFormat === 'grid'
+            }"
+            (click)="voteAgain()"
+          >
+            <span>Vote Again</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="card__percentage"
+      [ngClass]="{ 'card__percentage-list': displayFormat === 'list' }"
+    >
+      <div
+        class="thumbsUp"
+        [ngClass]="{
+          'thumbsUp-list': displayFormat === 'list',
+          'thumbsUp-grid': displayFormat === 'grid'
+        }"
+        [style.width]="positiveVotes"
+      >
+        <img src="assets/img/thumbs-up.svg" alt="thumbs up" />
+        <span>{{ positiveVotes }}</span>
+      </div>
+      <div
+        class="thumbsDown"
+        [ngClass]="{
+          'thumbsDown-list': displayFormat === 'list',
+          'thumbsDown-grid': displayFormat === 'grid'
+        }"
+        [style.width]="negativeVotes"
+      >
+        <span>{{ negativeVotes }}</span>
+        <img src="assets/img/thumbs-down.svg" alt="thumbs down" />
+      </div>
+    </div>
+  </div>
+</div>
