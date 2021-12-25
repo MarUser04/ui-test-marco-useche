@@ -21,7 +21,7 @@ export class AppComponent {
       this.allowChangeFormat = true;
     }
     
-    this.cardService.fetchData().subscribe((res: any) => this.data = res.data)
+    this.cardService.fetchData().subscribe((res: any) => this.data = res)
   }
 
   @HostListener('window:resize', ['$event'])
@@ -34,11 +34,11 @@ export class AppComponent {
     }
   }
 
-  displayOptions() {
+  displayOptions(): void {
     this.showOptions = !this.showOptions;
   }
 
-  changeFormat(format: string) {
+  changeFormat(format: string): void {
     this.displayFormat = format;
   }
 }

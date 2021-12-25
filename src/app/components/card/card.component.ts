@@ -25,17 +25,20 @@ export class CardComponent implements OnInit {
     this.negativeVotes = `${Math.round((100 / total) * this.item?.votes.negative)}%`;
   }
 
-  selectVoteOption(option: string) {
+  selectVoteOption(option: string): void {
     this.selectVote = this.selectVote === option ? '' : option;
   }
 
-  vote() {
+  vote(): void {
     if (this.selectVote) {
       this.voted = true;
+      this.cardService.vote(this.item._id, this.selectVote).subscribe((res: any) => {
+        this.selectVote = '';
+      })
     }
   }
 
-  voteAgain() {
+  voteAgain(): void {
     this.voted = false;
     this.selectVote = '';
   }
