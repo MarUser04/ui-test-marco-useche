@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core'
+import { Card } from 'src/app/interfaces/Card'
 import { CardService } from 'src/app/services/card.service'
 
 @Component({
@@ -8,7 +9,7 @@ import { CardService } from 'src/app/services/card.service'
 })
 export class CardComponent implements OnInit {
   @Input() displayFormat: string = ''
-  @Input() item: any = {}
+  @Input() item!: Card
   img: string = ''
   positiveVotes: string = ''
   negativeVotes: string = ''

@@ -12,7 +12,7 @@
       'card__background-grid': displayFormat === 'grid'
     }"
     src="{{ img }}"
-    alt="{{ item?.name }}"
+    alt="{{ item.name }}"
   />
   <button
     *ngIf="selectVote === 'negative'"
@@ -54,16 +54,16 @@
       >
         <h1>
           {{
-            item?.name.length > 20 && displayFormat === "grid"
-              ? (item?.name | slice: 0:22) + "..."
-              : item?.name
+            item.name.length > 20 && displayFormat === "grid"
+              ? (item.name | slice: 0:22) + "..."
+              : item.name
           }}
         </h1>
         <p>
           {{
-            item?.description.length > 80
-              ? (item?.description | slice: 0:80) + "..."
-              : item?.description
+            item.description.length > 80
+              ? (item.description | slice: 0:80) + "..."
+              : item.description
           }}
         </p>
       </div>
@@ -75,7 +75,7 @@
             'card__time-list': displayFormat === 'list',
             'card__time-grid': displayFormat === 'grid'
           }">
-          24 days ago in {{ item?.category | titlecase }}
+          24 days ago in {{ item.category | titlecase }}
         </span>
         <span
           *ngIf="voted"

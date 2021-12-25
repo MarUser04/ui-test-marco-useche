@@ -1,4 +1,5 @@
 import { Component, HostListener } from '@angular/core'
+import { Card } from './interfaces/Card'
 import { CardService } from './services/card.service'
 
 @Component({
@@ -10,7 +11,7 @@ export class AppComponent {
   showOptions = false
   displayFormat = 'grid'
   allowChangeFormat = true
-  data = []
+  data: Card[] = []
 
   constructor(private cardService: CardService) {}
 
