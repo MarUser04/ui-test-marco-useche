@@ -15,12 +15,28 @@ export class CardComponent implements OnInit {
   negativeVotes: string = ''
   selectVote: string = ''
   voted: boolean = false
+  lastUpdated: string = ''
 
   constructor(private cardService: CardService) {}
 
   ngOnInit(): void {
     this.img = `../../../assets/img/${this.item?.picture}`
     this.calculatePercentage()
+
+    const oneDay = 1000 * 60 * 60 * 24;
+    const diffDates = new Date().getTime() - new Date(this.item.lastUpdated).getTime();
+    const totalDays = Math.round(diffDates / oneDay);
+
+    this.lastUpdated = this.calculateLastUpdated(totalDays)
+  }
+
+  calculateLastUpdated(totalDays: number): string {
+    if (totalDays > 356) {
+      return `${Math.round(totalDays / 365)} year(s) ago`
+    } else if (totalDays > 31) {
+     return `${Math.round(totalDays / 31)} month(s) ago`
+    }
+    return `${totalDays} day(s) ago`
   }
 
   calculatePercentage(): void {
