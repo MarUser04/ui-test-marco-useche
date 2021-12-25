@@ -61,6 +61,10 @@
   overflow: initial;
 }
 
+.card__container-margin {
+  margin-bottom: 45px;
+}
+
 .card__main,
 .card__info {
   width: auto;

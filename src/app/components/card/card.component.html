@@ -40,7 +40,8 @@
     class="card__container"
     [ngClass]="{
       'card__container-list': displayFormat === 'list',
-      'card__container-grid': displayFormat === 'grid'
+      'card__container-grid': displayFormat === 'grid',
+      'card__container-margin': !positiveVotes && !negativeVotes
     }"
   >
     <div
@@ -141,6 +142,7 @@
     <div
       class="card__percentage"
       [ngClass]="{ 'card__percentage-list': displayFormat === 'list' }"
+      *ngIf="positiveVotes || negativeVotes"
     >
       <div
         class="thumbsUp"
