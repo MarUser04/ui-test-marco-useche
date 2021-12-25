@@ -116,6 +116,7 @@
 }
 
 .card__container-list p {
+  width: 75%;
   font-family: Lato;
   font-size: 18px;
   font-style: normal;
@@ -124,7 +125,7 @@
   letter-spacing: 0px;
   text-align: left;
   margin-top: 0px;
-  width: 75%;
+  margin-bottom: 10px;
 }
 
 .card__time {
@@ -229,7 +230,7 @@
 
 .card__percentage {
   display: flex;
-  margin-top: 25px;
+  margin-top: 12px;
   width: 100%;
 }
 
@@ -242,6 +243,16 @@
   display: flex;
   height: 45px;
   align-items: center;
+}
+
+.thumbsUp-grid,
+.thumbsDown-grid {
+  height: 36px;
+}
+
+.thumbsUp-list,
+.thumbsDown-list {
+  height: 54px;
 }
 
 .thumbsUp-grid span,
@@ -330,9 +341,17 @@
 @media all and (max-width: 1000px) {
   .card__main-list {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
+    align-items: center;
   }
 }
+
+@media all and (max-width: 800px) {
+  .card__info-list .card__voteOptions {
+    margin-top: 22px;
+  }
+}
+
 
 @media all and (max-width: 768px) {
   .card {
