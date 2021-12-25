@@ -11,6 +11,17 @@
   height: 348px;
 }
 
+.card-list {
+  height: 170px;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0) 0%,
+    19.79%,
+    #666666 50%,
+    rgba(51, 51, 51, 0.6) 71.88%
+  );
+}
+
 .card__background {
   position: absolute;
   height: 100%;
@@ -19,6 +30,17 @@
 
 .card__background-grid {
   width: 99.9%;
+}
+
+.card__background-list {
+  width: 25%;
+  -webkit-mask-image: -webkit-gradient(
+    linear,
+    left top,
+    right bottom,
+    from(rgba(0, 0, 0, 1)),
+    to(rgba(0, 0, 0, 0))
+  );
 }
 
 .card__container {
@@ -35,10 +57,23 @@
   overflow: hidden;
 }
 
+.card__container-list {
+  overflow: initial;
+}
+
 .card__main,
 .card__info {
   width: auto;
   height: auto;
+}
+
+.card__main-list {
+  display: flex;
+  justify-content: end;
+}
+
+.card__info-list {
+  width: 62%;
 }
 
 .card__voteOptions {
@@ -63,6 +98,12 @@
   text-align: left;
 }
 
+.card__info-list h1 {
+  line-height: 63px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
 .card__container p {
   margin-left: 13%;
   margin-right: 5%;
@@ -72,6 +113,17 @@
   font-weight: 700;
   line-height: 14px;
   letter-spacing: 0px;
+}
+
+.card__container-list p {
+  font-family: Lato;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0px;
+  text-align: left;
+  margin-top: 0px;
 }
 
 .card__time {
@@ -87,12 +139,21 @@
   line-height: 14px;
 }
 
+.card__time-list {
+  font-size: 15px;
+  line-height: 18px;
+}
+
 .icon-button {
   padding: 8px;
 }
 
 .icon-button:hover {
   cursor: pointer;
+}
+.icon-button-list {
+  width: 40px;
+  height: 40px;
 }
 
 .icon-button-grid {
@@ -132,6 +193,13 @@
   cursor: pointer;
 }
 
+.card__votes__voteNow-list {
+  width: 125px;
+  height: 42px;
+  margin-right: 2em;
+  opacity: 1;
+}
+
 .card__votes__voteNow span {
   font-family: Lato;
   font-style: normal;
@@ -143,6 +211,11 @@
 .card__votes__voteNow-grid span {
   font-size: 15px;
   line-height: 18px;
+}
+
+.card__votes__voteNow-list span {
+  font-size: 18px;
+  line-height: 22px;
 }
 
 .card__votes__voteNow-disabled {
@@ -157,6 +230,10 @@
   display: flex;
   margin-top: 25px;
   width: 100%;
+}
+
+.card__percentage-list {
+  margin-top: 0px;
 }
 
 .thumbsUp,
@@ -177,9 +254,26 @@
   text-align: left;
 }
 
+.thumbsUp-list span,
+.thumbsDown-list span {
+  font-family: Lato;
+  font-size: 27px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 32px;
+  letter-spacing: 0px;
+  text-align: left;
+}
+
 .thumbsUp img,
 .thumbsDown img {
   margin: 10px;
+}
+
+.thumbsUp-list img,
+.thumbsDown-list img {
+  width: 22.5px;
+  height: 22.5px;
 }
 
 .thumbsUp-grid img,
@@ -198,17 +292,28 @@
   justify-content: flex-end;
 }
 
+.card__currentVote-list {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  padding: 12px;
+}
 
 .card__currentVote-grid {
   padding: 10px;
 }
 
-.card__currentVote-grid {
+.card__currentVote-grid,
+.card__currentVote-list {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+.card__currentVote-list img {
+  width: 22.5px;
+  height: 22.5px;
+}
 
 .card__currentVote-grid img {
   width: 15px;
