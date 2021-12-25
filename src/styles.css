@@ -461,6 +461,51 @@ main h2 {
   display: contents;
 }
 
+.rulings {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rulings__selectbox {
+  border: 2px solid #333333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 173px;
+  max-height: 36px;
+  width: 173px;
+  height: 36px;
+  position: relative;
+}
+
+.rulings__selectbox img {
+  position: absolute;
+  right: 12px;
+}
+
+.rulings__selectbox:hover {
+  cursor: pointer;
+}
+
+.rulings__options-disabled {
+  display: none;
+}
+
+.rulings__options-active {
+  position: absolute;
+  background: white;
+  z-index: 999;
+}
+
+.rulings__options__selectbox {
+  border-top: 0px;
+}
+.rulings__options-active:hover {
+  cursor: pointer;
+}
+
 @media all and (min-width: 500px) {
   .banner-top .banner__left {
       flex-basis: 30%;

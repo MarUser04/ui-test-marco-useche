@@ -113,9 +113,34 @@
     </button>
   </aside>
   <main role="main">
-    <!-- Start: Implementation -->
-    👉 Your code goes here 👈
-    <!-- End: Implementation -->
+    <div class="rulings">
+      <h2>Previous Rulings</h2>
+      <div *ngIf="allowChangeFormat">
+        <div class="rulings__selectbox" (click)="displayOptions()">
+          <span>{{ displayFormat | titlecase }}</span>
+          <img src="assets/img/arrow.svg" alt="arrow" />
+        </div>
+        <div
+          [ngClass]="{
+            'rulings__options-active': showOptions,
+            'rulings__options-disabled': !showOptions
+          }"
+        >
+          <div
+            class="rulings__selectbox rulings__options__selectbox"
+            (click)="changeFormat('list')"
+          >
+            <span>List</span>
+          </div>
+          <div
+            class="rulings__selectbox rulings__options__selectbox"
+            (click)="changeFormat('grid')"
+          >
+            <span>Grid</span>
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
   <aside class="banner banner-bottom" role="doc-tip" aria-label="Submit a name">
     <img
