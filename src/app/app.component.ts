@@ -15,8 +15,9 @@ export class AppComponent {
   constructor(private cardService: CardService) {}
 
   ngOnInit(): void {
-    if (window.innerWidth <= 550) {
+    if (window.innerWidth <= 768) {
       this.allowChangeFormat = false;
+      this.displayFormat = 'grid';
     } else {
       this.allowChangeFormat = true;
     }
@@ -26,7 +27,7 @@ export class AppComponent {
 
   @HostListener('window:resize', ['$event'])
   onResize() {
-    if (window.innerWidth <= 550) {
+    if (window.innerWidth <=  768) {
       this.allowChangeFormat = false;
       this.displayFormat = 'grid';
     } else {
