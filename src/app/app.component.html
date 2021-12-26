@@ -148,11 +148,11 @@
         'cards__container-grid': displayFormat === 'grid'
       }"
     >
-      <card
+      <app-card
         *ngFor="let item of data"
         [item]="item"
         [displayFormat]="displayFormat"
-      ></card>
+      ></app-card>
     </div>
   </main>
   <aside class="banner banner-bottom" role="doc-tip" aria-label="Submit a name">

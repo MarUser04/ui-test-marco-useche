@@ -1,5 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { Component, HostListener } from '@angular/core'
+import { Component, HostListener, OnInit } from '@angular/core'
 import { Card } from './interfaces/Card'
 import { CardService } from './services/card.service'
 
@@ -8,7 +7,7 @@ import { CardService } from './services/card.service'
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   showOptions = false
   displayFormat = 'grid'
   allowChangeFormat = true
@@ -49,8 +48,8 @@ export class AppComponent {
   }
 
   displayOptions($event: any): void {
-    $event.preventDefault();
-    $event.stopPropagation();
+    $event.preventDefault()
+    $event.stopPropagation()
     this.showOptions = !this.showOptions
   }
 

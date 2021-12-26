@@ -98,9 +98,21 @@
             ],
             "scripts": []
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
   },
-  "defaultProject": "ui-test-marco-useche"
+  "defaultProject": "ui-test-marco-useche",
+  "cli": {
+    "defaultCollection": "@angular-eslint/schematics"
+  }
 }
