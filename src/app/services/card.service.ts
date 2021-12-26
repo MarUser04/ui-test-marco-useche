@@ -12,10 +12,10 @@ export class CardService {
   constructor(private http: HttpClient) { }
 
   fetchData() {
-    return this.http.get(environment.API_URL);
+    return this.http.get(`${environment.API_URL}/api/controversial`);
   }
 
   vote(id: string, voteStatus: string) {
-    return this.http.post(`http://localhost:4000/api/controversial/vote/${id}`, { voteStatus });
+    return this.http.post(`${environment.API_URL}/api/controversial/vote/${id}`, { voteStatus });
   }
 }
