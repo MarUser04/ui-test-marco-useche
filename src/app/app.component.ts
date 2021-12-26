@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Component, HostListener } from '@angular/core'
 import { Card } from './interfaces/Card'
 import { CardService } from './services/card.service'
