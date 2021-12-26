@@ -54,7 +54,7 @@
       >
         <h1>
           {{
-            item.name.length > 20 && displayFormat === "grid"
+            item.name.length > 20 && (displayFormat === "grid" || sliceName)
               ? (item.name | slice: 0:22) + "..."
               : item.name
           }}

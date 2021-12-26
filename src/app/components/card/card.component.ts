@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Component, Input, OnInit } from '@angular/core'
+import { Component, HostListener, Input, OnInit } from '@angular/core'
 import { Card } from 'src/app/interfaces/Card'
 import { CardService } from 'src/app/services/card.service'
 
@@ -17,6 +17,7 @@ export class CardComponent implements OnInit {
   selectVote: string = ''
   voted: boolean = false
   lastUpdated: string = ''
+  sliceName: boolean = false
 
   constructor(private cardService: CardService) {}
 
@@ -30,6 +31,15 @@ export class CardComponent implements OnInit {
       const diffDates = new Date().getTime() - new Date(this.item.lastUpdated).getTime()
       const totalDays = Math.round(diffDates / oneDay)
       this.lastUpdated = this.calculateLastUpdated(totalDays)
+    }
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize() {
+    if (window.innerWidth <= 1000) {
+      this.sliceName = true
+    } else {
+      this.sliceName = false
     }
   }
 

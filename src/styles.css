@@ -521,7 +521,7 @@ main h2 {
   grid-template-columns: repeat(3, 1fr);
 }
 
-@media all and (max-width: 1440px) {
+@media all and (max-width: 768px) {
   .cards__container {
     display: grid;
     grid-gap: 25px;
@@ -537,7 +537,7 @@ main h2 {
   }
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 520px) {
   .cards__container {
     overflow: scroll;
     display: flex;
