@@ -8,32 +8,35 @@ import { CardService } from 'src/app/services/card.service'
   styleUrls: ['./card.component.css']
 })
 export class CardComponent implements OnInit {
-  @Input() displayFormat: string = ''
-  @Input() item!: Card
-  img: string = ''
-  positiveVotes: string = ''
-  negativeVotes: string = ''
-  selectVote: string = ''
-  voted: boolean = false
-  lastUpdated: string = ''
-  sliceName: boolean = false
+  @Input() displayFormat: string = '' // results format on view
+  @Input() item!: Card // data for the controversial celebrity
+  img: string = '' // image url
+  positiveVotes: string = '' // positive votes percentage
+  negativeVotes: string = '' // negative votes percentage
+  selectVote: string = '' // current vote selected
+  voted: boolean = false // vote status to change card display
+  lastUpdated: string = '' // last updated date
+  sliceName: boolean = false // variable to format name length if mobile size format
 
   constructor(private cardService: CardService) {}
 
   ngOnInit(): void {
-    this.img = `../../../assets/img/${this.item?.picture}`
+    if (this.item?.picture) {
+      this.img = `../../../assets/img/${this.item?.picture}`
+    }
 
     this.calculatePercentage()
 
+    // Calculate last update value, using the item date and the current date
     if (this.item.lastUpdated) {
       const oneDay = 1000 * 60 * 60 * 24
-      const diffDates =
-        new Date().getTime() - new Date(this.item.lastUpdated).getTime()
+      const diffDates = new Date().getTime() - new Date(this.item.lastUpdated).getTime()
       const totalDays = Math.round(diffDates / oneDay)
       this.lastUpdated = this.calculateLastUpdated(totalDays)
     }
   }
 
+  // Detect mobile size to add slice in names with long length
   @HostListener('window:resize', ['$event'])
   onResize() {
     if (window.innerWidth <= 1000) {
@@ -43,6 +46,7 @@ export class CardComponent implements OnInit {
     }
   }
 
+  // Return last update label
   calculateLastUpdated(totalDays: number): string {
     if (totalDays > 356) {
       return `${Math.round(totalDays / 365)} year(s) ago`
@@ -52,6 +56,7 @@ export class CardComponent implements OnInit {
     return `${totalDays} day(s) ago`
   }
 
+  // Calculate percentage of positive and negative votes
   calculatePercentage(): void {
     const positive: number = this.item?.votes.positive || 0
     const negative: number = this.item?.votes.negative || 0
@@ -65,10 +70,12 @@ export class CardComponent implements OnInit {
     }
   }
 
+  // Update current vote selection
   selectVoteOption(option: string): void {
     this.selectVote = this.selectVote === option ? '' : option
   }
 
+  // Send vote and update current item, recalculating the percentage
   vote(): void {
     if (this.selectVote) {
       this.voted = true
@@ -83,6 +90,7 @@ export class CardComponent implements OnInit {
     }
   }
 
+  // Reset values to vote again
   voteAgain(): void {
     this.voted = false
     this.selectVote = ''
