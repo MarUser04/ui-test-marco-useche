@@ -343,7 +343,7 @@
 @media all and (max-width: 1000px) {
   .card__main-list {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
   }
 }
 
@@ -398,6 +398,11 @@
   }
 }
 
+@media all and (max-width: 600px) {
+  .card__main-list {
+    align-items: center;
+  }
+}
 
 @media all and (max-width: 520px) {
   .card {
